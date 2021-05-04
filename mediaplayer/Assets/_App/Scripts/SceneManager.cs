@@ -13,9 +13,9 @@ public class SceneManager : MonoBehaviour
   [Header("Video Cips")]
   [Space(8)]
   public VideoClip[] videoClips_kr;
-  public VideoClip[] popup_kr;
-  public VideoClip[] videoClips_en;
-  public VideoClip[] popup_en;
+  //public VideoClip[] popup_kr;
+  //public VideoClip[] videoClips_en;
+  //public VideoClip[] popup_en;
 
   [Header("Video property option")]
   [Space(8)]
@@ -25,7 +25,7 @@ public class SceneManager : MonoBehaviour
   // private
 
   private VideoClip[] videoClips = null;
-  private VideoClip[] popupClips = null;
+  //private VideoClip[] popupClips = null;
   private VideoPlayer currentActivePlayer;
   private int activePlayerIndex = 0, pendingPlayerIndex = 1, popupPlayerIndex =2, currentClipIndex = 0;
   private bool isFading = false, isPopupOpen = false, isIntroPage = false;
@@ -38,7 +38,7 @@ public class SceneManager : MonoBehaviour
   void Start()
   {
     // set screen size fixed
-    Screen.SetResolution(1800, 1212, true, 30);
+    Screen.SetResolution(1800, 1220, true, 30);
 
     // initialize the first page of kr
     videoPlayers[activePlayerIndex].clip = videoClips_kr[0];
@@ -47,7 +47,7 @@ public class SceneManager : MonoBehaviour
     videoPlayers[pendingPlayerIndex].Prepare();
 
     // add callback function on popup video players
-    videoPlayers[popupPlayerIndex].loopPointReached += EndReached;
+    //videoPlayers[popupPlayerIndex].loopPointReached += EndReached;
 
     isIntroPage = true;
   }
@@ -87,10 +87,10 @@ public class SceneManager : MonoBehaviour
     }
 
     // check language and change videocip array
-    if (lang == "kr")
-      videoClips = videoClips_kr;
-    else if (lang == "en")
-      videoClips = videoClips_en;
+    //if (lang == "kr")
+    videoClips = videoClips_kr;
+    //else if (lang == "en")
+      //videoClips = videoClips_en;
 
     videoPlayers[pendingPlayerIndex].clip = videoClips[currentClipIndex];
     videoPlayers[pendingPlayerIndex].isLooping = false;
@@ -170,64 +170,64 @@ public class SceneManager : MonoBehaviour
     videoPlayers[activePlayerIndex].targetCameraAlpha = 0;  
   }
 
-  public void ChangeLanaguage()
-  {
-    lang = lang == "kr" ? "en" : "kr";
-    ChangeVideo(currentClipIndex);
-  }
+  // public void ChangeLanaguage()
+  // {
+  //   lang = lang == "kr" ? "en" : "kr";
+  //   ChangeVideo(currentClipIndex);
+  // }
 
   #endregion
 
-  #region pop up function
+  //#region pop up function
 
-  public void PopUpPlay(string socketData)
-  {
-    if (isPopupOpen || isFading)
-      return;
+  // public void PopUpPlay(string socketData)
+  // {
+  //   if (isPopupOpen || isFading)
+  //     return;
 
-    if (lang == "kr")
-      popupClips = popup_kr;
-    else if (lang == "en")
-      popupClips = popup_en;
+  //   if (lang == "kr")
+  //     popupClips = popup_kr;
+  //   else if (lang == "en")
+  //     popupClips = popup_en;
 
-    if(socketData == "popup0"){
-      if(currentClipIndex != 0) return;
-    }
-    else if(socketData == "popup1"){
-      if(currentClipIndex == 0) return;
-    }
+  //   if(socketData == "popup0"){
+  //     if(currentClipIndex != 0) return;
+  //   }
+  //   else if(socketData == "popup1"){
+  //     if(currentClipIndex == 0) return;
+  //   }
 
-    videoPlayers[popupPlayerIndex].clip = popupClips[currentClipIndex / 2];
-    videoPlayers[popupPlayerIndex].Stop();
-    videoPlayers[popupPlayerIndex].Play();
-    videoPlayers[popupPlayerIndex].targetCameraAlpha = 1f;
+  //   videoPlayers[popupPlayerIndex].clip = popupClips[currentClipIndex / 2];
+  //   videoPlayers[popupPlayerIndex].Stop();
+  //   videoPlayers[popupPlayerIndex].Play();
+  //   videoPlayers[popupPlayerIndex].targetCameraAlpha = 1f;
 
-    // check pending player
-    activePlayerIndex = (videoPlayers[0].targetCameraAlpha > 0f) ? 0 : 1;
-    pendingPlayerIndex = (videoPlayers[0].targetCameraAlpha > 0f) ? 1 : 0;
+  //   // check pending player
+  //   activePlayerIndex = (videoPlayers[0].targetCameraAlpha > 0f) ? 0 : 1;
+  //   pendingPlayerIndex = (videoPlayers[0].targetCameraAlpha > 0f) ? 1 : 0;
 
-    // dim out the active player
-    videoPlayers[activePlayerIndex].targetCameraAlpha = popupBackgroundOpacity;
+  //   // dim out the active player
+  //   videoPlayers[activePlayerIndex].targetCameraAlpha = popupBackgroundOpacity;
 
-    isPopupOpen = true;
-  }
+  //   isPopupOpen = true;
+  // }
 
   // popup video finish
-  void EndReached(VideoPlayer vp){
-    // check pending player
-    activePlayerIndex = (videoPlayers[0].targetCameraAlpha > 0f) ? 0 : 1;
-    pendingPlayerIndex = (videoPlayers[0].targetCameraAlpha > 0f) ? 1 : 0;
+//   void EndReached(VideoPlayer vp){
+//     // check pending player
+//     activePlayerIndex = (videoPlayers[0].targetCameraAlpha > 0f) ? 0 : 1;
+//     pendingPlayerIndex = (videoPlayers[0].targetCameraAlpha > 0f) ? 1 : 0;
 
-    // dim out the active player
-    videoPlayers[activePlayerIndex].targetCameraAlpha = 1;
+//     // dim out the active player
+//     videoPlayers[activePlayerIndex].targetCameraAlpha = 1;
 
-    // popup disappear
-    videoPlayers[popupPlayerIndex].targetCameraAlpha = 0;
+//     // popup disappear
+//     videoPlayers[popupPlayerIndex].targetCameraAlpha = 0;
 
-     isPopupOpen = false;
-    }
+//      isPopupOpen = false;
+//     }
 
-  #endregion
+//   #endregion
 
 }
 

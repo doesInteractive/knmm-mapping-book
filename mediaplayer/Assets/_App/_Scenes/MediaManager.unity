@@ -243,39 +243,15 @@ MonoBehaviour:
   - {fileID: 869513274}
   - {fileID: 486142270}
   videoClips_kr:
-  - {fileID: 32900000, guid: 5c4d94a2c73bdba4788062684473440d, type: 3}
-  - {fileID: 32900000, guid: 4ffb3433a2cdeb54e860166207f423a4, type: 3}
-  - {fileID: 32900000, guid: f21696a0d7b8d0b4193dcdc321d92048, type: 3}
-  - {fileID: 32900000, guid: f6999a5dc0de9e848a8b227ab4aec43a, type: 3}
-  - {fileID: 32900000, guid: f0a30f706e227ba46b25ab723886b38d, type: 3}
-  - {fileID: 32900000, guid: b02d3b8967898754dbdbbe4d86c9b127, type: 3}
-  - {fileID: 32900000, guid: 0fb6727ab9dc7634e8ac7cd99dec0f9f, type: 3}
-  - {fileID: 32900000, guid: 13dc86d3adc911d4d862383395169950, type: 3}
-  - {fileID: 32900000, guid: 1039d96c216f5e243be1d0b996e2d5a2, type: 3}
-  - {fileID: 32900000, guid: e95189bcfb32f4845b6902763ef93647, type: 3}
-  popup_kr:
-  - {fileID: 32900000, guid: 629e8f1e7f1cc1e4784effaa017c1540, type: 3}
-  - {fileID: 32900000, guid: 05bc0c63b3f1b2f488903edc5db77088, type: 3}
-  - {fileID: 32900000, guid: 7265f3b9f4f71374e801a0f293b43a5a, type: 3}
-  - {fileID: 32900000, guid: a7fbae627f26ea145acecdba84c14c6e, type: 3}
-  - {fileID: 32900000, guid: 344156283176fcc4eb66bcd43553f8a8, type: 3}
-  videoClips_en:
-  - {fileID: 32900000, guid: d09c500f738ea0b418a6d6fdfb193990, type: 3}
-  - {fileID: 32900000, guid: 365b26f154ea8fe4b9439449d2b10411, type: 3}
-  - {fileID: 32900000, guid: 66a5d6b5825b11747899e68e7d13d64a, type: 3}
-  - {fileID: 32900000, guid: 3354d928332307a429d32514937f5858, type: 3}
-  - {fileID: 32900000, guid: d2f60080d9cdafb4e8449294e1886e0f, type: 3}
-  - {fileID: 32900000, guid: 8582158832ddfa54bb2db3b9abdc2e86, type: 3}
-  - {fileID: 32900000, guid: c52a41a631b943140aa17cf2c5013eb7, type: 3}
-  - {fileID: 32900000, guid: 6354fb8f401ad0146a5e1645d36f0833, type: 3}
-  - {fileID: 32900000, guid: b1f00365c097a234a8d45d8767cadd15, type: 3}
-  - {fileID: 32900000, guid: d40d34b2459de224182916479a90f491, type: 3}
-  popup_en:
-  - {fileID: 32900000, guid: 3be71e7c475bd17438c3aeeec66b3437, type: 3}
-  - {fileID: 32900000, guid: c652c688618bb2a48a8879e5bc0a4a67, type: 3}
-  - {fileID: 32900000, guid: c106806a37420b249b54a2187618657c, type: 3}
-  - {fileID: 32900000, guid: 5573dc34f747dcd49a7e1eb3a027208e, type: 3}
-  - {fileID: 32900000, guid: bedd190647b6bb24eaeabe28225fb35c, type: 3}
+  - {fileID: 32900000, guid: 929ca4bfbe18d9642ac61dc6ea38069b, type: 3}
+  - {fileID: 32900000, guid: acb22f71e6535fd4fa42640be517394d, type: 3}
+  - {fileID: 32900000, guid: 965e3138744f15c4faeac9ca9434f228, type: 3}
+  - {fileID: 32900000, guid: c3f014ddba528b5449da187bfa8f4bb1, type: 3}
+  - {fileID: 32900000, guid: 81b42d7c6c477e342a0e416a98369d9c, type: 3}
+  - {fileID: 32900000, guid: 52a28302432e4884bba767c513afcb06, type: 3}
+  popup_kr: []
+  videoClips_en: []
+  popup_en: []
   crossFadeDuration: 0.7
   popupBackgroundOpacity: 0.8
 --- !u!1 &486142269

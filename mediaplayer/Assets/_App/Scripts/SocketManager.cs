@@ -25,18 +25,18 @@ public class SocketManager : MonoBehaviour
     string socketData = e.data.GetField("media").str;
 
     // lanaguage change
-    if (socketData == "changelang")
-      sceneManager.ChangeLanaguage();
+    // if (socketData == "changelang")
+    //   sceneManager.ChangeLanaguage();
 
     // page change active
-    else if (socketData == "0" || socketData == "2" || socketData == "4" || socketData == "6" || socketData == "8")
+    if (socketData == "0" || socketData == "2" || socketData == "4" || socketData == "6" || socketData == "8")
     {
       sceneManager.ChangeVideo(int.Parse(socketData));
     }
 
     // popup play
-    else if (socketData.Contains("popup"))
-      sceneManager.PopUpPlay(socketData);
+    // else if (socketData.Contains("popup"))
+    //   sceneManager.PopUpPlay(socketData);
   }
 
   public void PlayAllMediaEvent(SocketIOEvent e)
