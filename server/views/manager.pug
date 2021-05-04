@@ -1,0 +1,46 @@
+extends layout
+
+block content
+  div.header 
+    h1 history book
+    h2 manager
+  div.content.manager
+    div.spinner.loading
+      div.cube1
+      div.cube2
+    div.error
+    div.ui
+      div.webcam-preview-wrapper
+        video.webcam-raw(autoplay playsinline muted)
+        canvas.webcam-canvas
+        canvas.webcam-target
+        canvas#drawable.ui-canvas
+      div.calibration
+        h3 calibration panel
+        h4 current page prediction: <span class="prediction">1</span> <span class="confidence">/ confidence level: <span class="level">0</span>%</span>
+        div.step.step-01
+          h6 If the prediction seems inaccurate you can start a new calibration using the button below
+          button.type-01.start-calibration start new calibration
+        div.step.step-02
+          p.info Adjust the blue target on the canvas and press the save button
+          button.type-01.target-save save
+        div.step.step-03
+          p.info Open page number <span class="page-number">1</span> and press the ready button
+          button.type-01.next(data-currentClassIndex="0") ready
+          p.samples-info Samples captured: <span class="samples-number">0</span> / <span class="total-samples">0</span>
+        div.step.step-04
+          p.info All data have been saved, press the train button to start the training
+          button.type-01.train train
+          p.training-info Training progress: <span class="progress">0</span>%
+            br
+            br
+            span loss: <span class="loss-info">0</span>
+        div.step.step-05
+          p.info The training is successfully complete, if you are satisfied with the accuracy of the model press the save button or press cancel to load back the previous model
+          button.type-01.save.mr20 save
+          button.type-01.cancel cancel
+block scripts
+  script(src='/js/dataset.js')
+  script(src='/js/Webcam.js')
+  script(src='/js/Model.js')
+  script(src='/js/manager.js')

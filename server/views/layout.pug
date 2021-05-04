@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title= title
+    meta(name="HandheldFriendly" content="True")
+    meta(name="MobileOptimized" content="320")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no viewport-fit=cover")
+    meta(name="apple-mobile-web-app-capable" content="yes")
+    meta(name="apple-mobile-web-app-status-bar-style" content="black-translucent")
+    meta(name="mobile-web-app-status-bar-style" content="white")
+    meta(name="format-detection" content="telephone=no")
+    meta(name="theme-color" content="#000")
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    block content
+    script(src="/socket.io/socket.io.js")
+    script(src="/js/jquery-3.2.1.min.js")  
+    script(src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js")
+    block scripts
