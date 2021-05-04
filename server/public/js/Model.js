@@ -1,7 +1,7 @@
 class Model{
   constructor(webcam, dataPointsPerClass, captureSpeed){
     this.webcam = webcam
-    this.classes = ['0', '1', '2', '3', '4']
+    this.classes = ['0', '1', '2']
     this.dataPointsPerClass = dataPointsPerClass
     this.currentClassIndex = 0
     this.isTrained = false
@@ -201,9 +201,9 @@ class Model{
 
         return predictOut
       })
-  
+
       predictedClass.dispose()
-  
+
       await tf.nextFrame()
     }
   }
