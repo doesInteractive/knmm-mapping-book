@@ -109,7 +109,7 @@ class Webcam {
    */
   drawDraggable() {
     //clear canvas
-    
+
     this.uiContext.clearRect(0, 0, this.uiCanvas.width, this.uiCanvas.height)
 
     //draw new rectangle
@@ -127,6 +127,23 @@ class Webcam {
         navigator.getUserMedia(
             {video: true},
             stream => {
+              const constraints = {
+                advanced: [
+                  {
+                    brightness: 100,
+                    exposureMode: 'manual',
+                    exposureTime: 48.828125, //78.125
+                    focusDistance: 20,
+                    focusMode: "manual",
+                  },
+                ]
+              }
+
+              const track = stream.getVideoTracks()[0]
+              track.applyConstraints(constraints)
+
+              //console.log(track.getCapabilities())
+
               this.webcamElement.srcObject = stream
               this.webcamElement.addEventListener('loadeddata', async () => {
                 let cw = this.webcamElement.videoWidth

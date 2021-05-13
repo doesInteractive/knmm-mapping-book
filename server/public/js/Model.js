@@ -11,6 +11,7 @@ class Model{
     this.learningRate = 0.00001
     this.model
     this.prediction
+    this.confidenceLevel
 
     this.isPredicting = true
   }
@@ -193,6 +194,8 @@ class Model{
         const logits = Array.from(predictOut.dataSync())
         const confidenceLevel = logits[predictOut.argMax(-1).dataSync()[0]]
         const winner = this.classes[predictOut.argMax(-1).dataSync()[0]]
+
+        this.confidenceLevel = confidenceLevel
         this.prediction = winner
 
         //update UI

