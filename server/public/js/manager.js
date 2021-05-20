@@ -9,6 +9,8 @@ $(function() {
   let protectionConfidenceTreshold = 0.95
   let previousPrediction
 
+  let IDLE_TIMER = 0
+
   const WEBCAM = new Webcam(
     $('.webcam-raw')[0],
     $('.webcam-canvas')[0],
@@ -26,6 +28,13 @@ $(function() {
   const _errorUI = $('.error').hide()
   const _ui = $('.ui').hide()
 
+  setInterval(function () {
+    IDLE_TIMER++
+
+    if (IDLE_TIMER > 300) {
+      window.location.reload()
+    }
+  }, 1000)
 
   //initialize the page
   initUI()
@@ -53,6 +62,8 @@ $(function() {
         socket.emit('play media', {media: ''+currentPrediction * 2})
         saveCurrentPage = currentPrediction
         protectionCount = 0
+
+        IDLE_TIMER = 0
       }
       else
         return

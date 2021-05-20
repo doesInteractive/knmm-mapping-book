@@ -10,7 +10,7 @@ const bodyParser = require('body-parser')
 const fs = require('fs')
 const app = express()
 const server = require('http').Server(app)
-const io = require('socket.io')(server)
+const io = require('socket.io')(server, {pingTimeout: 30000})
 const indexRouter = require('./routes/index')
 
 // arduino variable
