@@ -110,6 +110,10 @@ $(function() {
     loadStep(2)
   })
 
+  $('.target-save-position-no-training').click(function(){
+    MODEL.saveTargetPosition(WEBCAM)
+  })
+
   $('.next').click(async function(){
     let currentClassIndex = Number($(this).attr('data-currentClassIndex'))
     isCapturingData = true
